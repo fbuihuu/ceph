@@ -1016,8 +1016,7 @@ fi
 /sbin/ldconfig
 test -n "$FIRST_ARG" || FIRST_ARG=$1
 %if 0%{?suse_version}
-DISABLE_RESTART_ON_UPDATE="yes"
-%service_del_postun ceph-disk@\*.service ceph.target
+%service_del_postun_without_restart ceph-disk@\*.service ceph.target
 %endif
 %if 0%{?fedora} || 0%{?rhel}
 %systemd_postun ceph-disk@\*.service ceph.target
@@ -1164,8 +1163,7 @@ fi
 %postun mds
 test -n "$FIRST_ARG" || FIRST_ARG=$1
 %if 0%{?suse_version}
-DISABLE_RESTART_ON_UPDATE="yes"
-%service_del_postun ceph-mds@\*.service ceph-mds.target
+%service_del_postun_without_restart ceph-mds@\*.service ceph-mds.target
 %endif
 %if 0%{?fedora} || 0%{?rhel}
 %systemd_postun ceph-mds@\*.service ceph-mds.target
@@ -1213,8 +1211,7 @@ fi
 %postun mgr
 test -n "$FIRST_ARG" || FIRST_ARG=$1
 %if 0%{?suse_version}
-DISABLE_RESTART_ON_UPDATE="yes"
-%service_del_postun ceph-mgr@\*.service ceph-mgr.target
+%service_del_postun_without_restart ceph-mgr@\*.service ceph-mgr.target
 %endif
 %if 0%{?fedora} || 0%{?rhel}
 %systemd_postun ceph-mgr@\*.service ceph-mgr.target
@@ -1265,8 +1262,7 @@ fi
 %postun mon
 test -n "$FIRST_ARG" || FIRST_ARG=$1
 %if 0%{?suse_version}
-DISABLE_RESTART_ON_UPDATE="yes"
-%service_del_postun ceph-mon@\*.service ceph-mon.target
+%service_del_postun_without_restart ceph-mon@\*.service ceph-mon.target
 %endif
 %if 0%{?fedora} || 0%{?rhel}
 %systemd_postun ceph-mon@\*.service ceph-mon.target
@@ -1324,8 +1320,7 @@ fi
 %postun -n rbd-mirror
 test -n "$FIRST_ARG" || FIRST_ARG=$1
 %if 0%{?suse_version}
-DISABLE_RESTART_ON_UPDATE="yes"
-%service_del_postun ceph-rbd-mirror@\*.service ceph-rbd-mirror.target
+%service_del_postun_without_restart ceph-rbd-mirror@\*.service ceph-rbd-mirror.target
 %endif
 %if 0%{?fedora} || 0%{?rhel}
 %systemd_postun ceph-rbd-mirror@\*.service ceph-rbd-mirror.target
@@ -1380,8 +1375,7 @@ fi
 %postun radosgw
 test -n "$FIRST_ARG" || FIRST_ARG=$1
 %if 0%{?suse_version}
-DISABLE_RESTART_ON_UPDATE="yes"
-%service_del_postun ceph-radosgw@\*.service ceph-radosgw.target
+%service_del_postun_without_restart ceph-radosgw@\*.service ceph-radosgw.target
 %endif
 %if 0%{?fedora} || 0%{?rhel}
 %systemd_postun ceph-radosgw@\*.service ceph-radosgw.target
@@ -1440,8 +1434,7 @@ fi
 %postun osd
 test -n "$FIRST_ARG" || FIRST_ARG=$1
 %if 0%{?suse_version}
-DISABLE_RESTART_ON_UPDATE="yes"
-%service_del_postun ceph-osd@\*.service ceph-osd.target
+%service_del_postun_without_restart ceph-osd@\*.service ceph-osd.target
 %endif
 %if 0%{?fedora} || 0%{?rhel}
 %systemd_postun ceph-osd@\*.service ceph-osd.target
